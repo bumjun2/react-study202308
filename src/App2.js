@@ -1,15 +1,13 @@
 import React from 'react';
-import './App.css';
-import AppItem from './AppItem';
-import Noname from './Noname';
-import Hello from './Hello';
+
+import ExpenseItem from './components/ExpenseItem';
 
 function App() {
   return (
     <>
-      <AppItem />
-      <Hello />
-      <Noname />
+      <ExpenseItem />
+      <ExpenseItem />
+      <ExpenseItem />
     </>
   );
 }
