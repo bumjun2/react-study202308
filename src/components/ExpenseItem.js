@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 // css 로딩
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
-import card from './UI/card';
+import Card from './UI/card';
 
 const ExpenseItem = ({ title, price: propsPrice, date }) => {
+  // 값이 변경되어 화면에 반영되어야 하는 값들은
+  // useState훅을 통해 상태변수로 관리한다.
+
+  // usestate는 배열을 리턴하는데
+  // 첫번째 요소는 관리할 상태값
+  // 두번째 요소는 상태값을 변경하는 setter함수
+  const [itemTitle, setItemtitle] = useState(title);
+  // console.log(stateItem);
   const make2digit = (text) => {
     return text.toString().padStart(2, '0');
   };
@@ -21,14 +29,25 @@ const ExpenseItem = ({ title, price: propsPrice, date }) => {
   const formattedPrice = new Intl.NumberFormat('ko-KR').format(propsPrice);
 
   const clickHandler = (e) => {
-    console.log(e.target);
+    // itemTitle = '안녕';
+    // console.log(itemTitle);
+
+    // state변수는 반드시 setter를 통해서 변경해라
+    // setItemtitle((snapshot) => {
+    //   console.log(`${snapshot}`);
+    //   // 메롱이 새로운 값이되면 기존 스냅샷과 다를경우
+    //   // 화면을 리렌더링하고 같을경우 리렌더링하지 않는다.
+    //   return '메롱';
+    // });
+
+    setItemtitle('메롱');
   };
 
   return (
-    <card className="expense-item">
+    <Card className="expense-item">
       <ExpenseDate date={date} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
+        <h2>{itemTitle}</h2>
         <div className="expense-item__price">{propsPrice}원</div>
       </div>
       <button
@@ -45,7 +64,7 @@ const ExpenseItem = ({ title, price: propsPrice, date }) => {
       >
         수정
       </button>
-    </card>
+    </Card>
   );
 };
 

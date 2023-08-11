@@ -23,6 +23,8 @@ const App = () => {
     },
   ];
 
+  console.log('App실행');
+
   return (
     <>
       <ExpenseList items={expenses} />
