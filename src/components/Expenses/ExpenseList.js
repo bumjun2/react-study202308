@@ -1,10 +1,17 @@
 import React from 'react';
 import ExpenseItem from './ExpenseItem';
 import './ExpenseList.css';
+import Card from '../UI/card';
+import ExpeenseFilter from './ExpenseFilter';
 
 const ExpenseList = ({ items }) => {
+  const aa = (ee) => {
+    console.log(ee);
+  };
   return (
-    <div className="expenses">
+    <Card className="expenses">
+      <ExpeenseFilter ee={aa} />
+
       <ExpenseItem
         title={items[0].title}
         price={items[0].price}
@@ -20,7 +27,7 @@ const ExpenseList = ({ items }) => {
         price={items[2].price}
         date={items[2].date}
       />
-    </div>
+    </Card>
   );
 };
 
