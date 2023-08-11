@@ -22,11 +22,16 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (newExpense) => {
+    console.log('App컴퍼넌트에서 응답함');
+    console.log(newExpense);
+  };
+
   console.log('App실행');
 
   return (
     <>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <ExpenseList items={expenses} />
     </>
   );
