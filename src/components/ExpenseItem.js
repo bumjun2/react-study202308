@@ -2,6 +2,7 @@ import React from 'react';
 // css 로딩
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
+import card from './UI/card';
 
 const ExpenseItem = ({ title, price: propsPrice, date }) => {
   const make2digit = (text) => {
@@ -20,13 +21,15 @@ const ExpenseItem = ({ title, price: propsPrice, date }) => {
   const formattedPrice = new Intl.NumberFormat('ko-KR').format(propsPrice);
 
   return (
-    <div className="expense-item">
-      <ExpenseDate date={date} />
-      <div className="expense-item__description">
-        <h2>{title}</h2>
-        <div className="expense-item__price">{propsPrice}원</div>
+    <card className="circle">
+      <div className="expense-item">
+        <ExpenseDate date={date} />
+        <div className="expense-item__description">
+          <h2>{title}</h2>
+          <div className="expense-item__price">{propsPrice}원</div>
+        </div>
       </div>
-    </div>
+    </card>
   );
 };
 
