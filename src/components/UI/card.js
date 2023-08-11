@@ -1,9 +1,9 @@
 import React from 'react';
 import './card.css';
 
-export const card = ({ children, clasName }) => {
-  const madeClass = 'card ' + clasName;
+const Card = ({ children, className }) => {
+  const madeClass = 'card ' + className;
   return <div className={madeClass}>{children}</div>;
 };
 
-export default card;
+export default Card;

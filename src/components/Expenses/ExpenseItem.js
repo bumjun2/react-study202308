@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // css 로딩
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
-import Card from './UI/card';
+import Card from '../UI/card';
 
 const ExpenseItem = ({ title, price: propsPrice, date }) => {
   // 값이 변경되어 화면에 반영되어야 하는 값들은
