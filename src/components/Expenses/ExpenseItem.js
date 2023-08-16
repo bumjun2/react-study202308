@@ -62,7 +62,7 @@ const ExpenseItem = ({ title, price: propsPrice, date }) => {
           console.log('삭제');
         }}
       >
-        수정
+        삭제
       </button>
     </Card>
   );
