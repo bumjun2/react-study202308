@@ -1,9 +1,7 @@
 import React from 'react';
 import './ExpenseFilter.css';
-const ExpeenseFilter = ({ ee }) => {
+const ExpeenseFilter = ({ selected, ee }) => {
   const dropdownChangeHandler = (e) => {
-    console.log(e.target.value);
-
     const selectedYear = e.target.value;
     // selectedYear 가 ExpenseList에서 사용할 수 있다록
     // 올려보내보세요.
@@ -13,7 +11,10 @@ const ExpeenseFilter = ({ ee }) => {
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
-        <select onChange={dropdownChangeHandler}>
+        <select
+          value={selected}
+          onChange={dropdownChangeHandler}
+        >
           <option value="2023">2023</option>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
