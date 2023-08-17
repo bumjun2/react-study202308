@@ -1,50 +1,69 @@
 import React, { useState } from 'react';
-import ExpenseList from './components/Expenses/ExpenseList';
-import NewExpense from './components/NewExpense/NewExpense';
+import CourseInput from './components/CourseGoals/CourseInput';
+import CourseList from './components/CourseGoals/CourseList';
+import './App.css';
+
+const DUMMY_DATA = [
+  {
+    id: 'g1',
+    text: '리액트 컴포넌트 스타일링 마스터하기',
+  },
+  {
+    id: 'g2',
+    text: 'UI프로그래밍 고수되기',
+  },
+];
 
 const App = () => {
-  // 지출 항목 객체 배열
-  const expenses = [
-    {
-      id: 1,
-      title: '바나나',
-      price: 2000,
-      date: new Date(2023, 3, 23),
-    },
-    {
-      id: 2,
-      title: 'BBQ치킨',
-      price: 20000,
-      date: new Date(2022, 5, 21),
-    },
-    {
-      id: 3,
-      title: '도미노피자',
-      price: 35000,
-      date: new Date(2023, 7, 14),
-    },
-    {
-      id: 4,
-      title: '엽기떡볶이',
-      price: 17000,
-      date: new Date(2021, 3, 28),
-    },
-  ];
+  const [goals, setGoals] = useState(DUMMY_DATA);
 
-  //지출 객체 배열을 상태변수로 관리
-  const [expensesList, setExpenseList] = useState(expenses);
+  // Input에게 전달할 함수
+  const addGoalHandler = (text) => {
+    // console.log('전달받은 텍스트: ',text);
+    const newGoal = {
+      id: Math.random().toString(),
+      text: text,
+    };
 
-  const addExpenseHandler = (newExpense) => {
-    console.log(newExpense);
-
-    setExpenseList([...expensesList, newExpense]);
+    // 상태변수(배열) 수정
+    // const updateGoals = [...goals, newGoal];
+    setGoals((prevGoals) => [...prevGoals, newGoal]);
   };
 
+  // 삭제 이벤트 핸들러를 courseitem까지 내려보내야 함
+  const deleteGoalHandler = (id) => {
+    // console.log(id);
+    setGoals((prevGoals) => prevGoals.filter((goal) => goal.id !== id));
+  };
+
+  // courselist 조건부 렌더링
+  let listContent = (
+    <p
+      style={{
+        color: 'red',
+        fontSize: '2em',
+        textAlign: 'center',
+      }}
+    >
+      목표를 등록해주세요!!
+    </p>
+  );
+  if (goals.length > 0) {
+    listContent = (
+      <CourseList
+        items={goals}
+        onDelete={deleteGoalHandler}
+      />
+    );
+  }
+
   return (
-    <>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpenseList items={expensesList} />
-    </>
+    <div>
+      <section id="goal-form">
+        <CourseInput onAdd={addGoalHandler} />
+      </section>
+      <section id="goals">{listContent}</section>
+    </div>
   );
 };
 
