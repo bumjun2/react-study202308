@@ -4,6 +4,7 @@ import './ExpenseList.css';
 import Card from '../UI/card';
 import ExpeenseFilter from './ExpenseFilter';
 import ExpenseForm from '../NewExpense/ExpenseForm';
+import ExpensesChart from './ExpenseChart';
 
 const ExpenseList = ({ items }) => {
   // 선택된 연도 상태값 관리
@@ -45,6 +46,7 @@ const ExpenseList = ({ items }) => {
         selected={filteredYear}
         ee={aa}
       />
+      <ExpensesChart expenses={items} />
       {expenseContent}
     </Card>
   );
