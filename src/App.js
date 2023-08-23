@@ -1,26 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './components/Food/Layout/Header';
+import Meals from './components/Food/Meals/Meals';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img
-          src={logo}
-          className="App-logo"
-          alt="logo"
-        />
-        <p>리액트 초보자입니다.</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          하이 방가방가
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Meals />
+      </main>
+    </>
   );
 }
 
