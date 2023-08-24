@@ -42,11 +42,11 @@ const AvailableMeals = () => {
   ));
 
   return (
-    <Card>
-      <section className={styles.meals}>
+    <section className={styles.meals}>
+      <Card>
         <ul>{mealsList}</ul>
-      </section>
-    </Card>
+      </Card>
+    </section>
   );
 };
 

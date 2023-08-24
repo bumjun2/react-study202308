@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './MealItem.module.scss';
-import Input from '../../../UI/Input/Input';
+import MealItemForm from './MealItemForm';
 
 const MealItem = ({ id, price, description, name }) => {
   const { meal, description: desc, price: priceStyle } = styles;
@@ -15,7 +15,7 @@ const MealItem = ({ id, price, description, name }) => {
         <div className={priceStyle}>{formatPrice}원</div>
       </div>
       <div>
-        <Input />
+        <MealItemForm id={id} />
       </div>
     </li>
   );

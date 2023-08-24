@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './';
+import styles from './Input.module.scss';
 
 const Input = ({ input, label }) => {
   return (

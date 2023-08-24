@@ -1,11 +1,10 @@
-import React from 'react';
-import { ReactDOM } from 'react-dom';
+import ReactDOM from 'react-dom';
 
-const Potal = ({ children: renderComponent, destId }) => {
+const Portal = ({ children: renderComponent, destId }) => {
   return ReactDOM.createPortal(
     renderComponent,
     document.getElementById(destId)
   );
 };
 
-export default Potal;
+export default Portal;
