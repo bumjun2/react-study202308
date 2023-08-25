@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CartModall.module.scss';
 
-import Protal from '../Potal/Potal';
+import Portal from '../Potal/Potal';
 
 const Backdrop = ({ onClose }) => {
   return (
@@ -23,12 +23,12 @@ const ModalOverlay = ({ children }) => {
 const CartModal = ({ children, onClose }) => {
   return (
     <>
-      <Protal destId="backdrop-root">
+      <Portal destId="backdrop-root">
         <Backdrop onClose={onClose} />
-      </Protal>
-      <Protal destId="overlay-root">
+      </Portal>
+      <Portal destId="overlay-root">
         <ModalOverlay>{children}</ModalOverlay>
-      </Protal>
+      </Portal>
     </>
   );
 };
